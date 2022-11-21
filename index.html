@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./netflix-icon.webp"  width="100%" height="100%" type="image/icon type">
+</head>
+<body>
+    <nav>
+        <div class="nav-parent">
+        <div class="first-nav">
+            <div class="logo">
+                <img src="./logo.png" alt="">
+            </div>
+            <div class="logo-links">
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="./serie.html">Serie TV</a>
+                    </li>
+                    <li>
+                        <a href="#">Film</a>
+                    </li>
+                    <li>
+                        <a href="#">Nouvi e popolari</a>
+                    </li>
+                    <li>
+                        <a href="#">La mia lista</a>
+                    </li>
+                    <li>
+                        <a href="#">Sfoglia per lingua</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="other-link">
+                <div onclick="showLinks()" style="cursor: pointer;" class="first-item-link" id="sfoglia-parent">Sfoglia <svg id="svg-sfoglia" style="transform: rotate(90deg);" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                  </svg></div>
+
+                  <div class="content-links" id="links-other" style="display: none;">
+                    <a href="#">Home</a>
+                    <a href="./serie.html">Serie TV</a>
+                    <a href="#">Film</a>
+                    <a href="#">Nouvi e popolari</a>
+                    <a href="#">La mia lista</a>
+                    <a href="#">Sfoglia per lingua</a>
+                  </div>
+            </div>
+        </div>
+        <div class="last-nav">
+            <svg class="hide-for-mobile" id="svg-open" onclick="svgOpen()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg>
+              <div class="search-bar" id="search-bar" style="display: none;">
+                <input onkeypress="showDelete()" type="text" placeholder="Titoli, persone, generi" autocomplete="off">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                  </svg>
+                  <svg id="svg-close" onclick="svgClose()" class="svg-delete"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                  </svg>
+              </div>
+              <a class="hide-for-mobile" href="./serie.html">Bambini</a>
+              <svg class="hide-for-mobile" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+              </svg>
+              <div class="nav-profile" id="nav-profile" onclick="showProfile()">
+                <img src="./profile-logo.png">
+                <svg id="svg-down" style="rotate: 90deg;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                  </svg>
+
+                  <svg id="svg-up" style="rotate: 30deg; display: none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                  </svg>
+              </div>
+        </div>
+    </div>
+    </nav>
+
+    <div class="container">
+        <div class="left">
+            <img src="./dhamer-title.png">
+            <div class="button-play">
+                <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                  </svg> Riproduci</button>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
+                    <path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z"/>
+                  </svg>
+            </div>
+            <div class="serie-info">
+                <div class="serie-info-1">
+                    <p>2022</p>
+                    <p>+18</p>
+                    <p>10 episodi</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-badge-hd" viewBox="0 0 16 16">
+                        <path d="M7.396 11V5.001H6.209v2.44H3.687V5H2.5v6h1.187V8.43h2.522V11h1.187zM8.5 5.001V11h2.188c1.811 0 2.685-1.107 2.685-3.015 0-1.894-.86-2.984-2.684-2.984H8.5zm1.187.967h.843c1.112 0 1.622.686 1.622 2.04 0 1.353-.505 2.02-1.622 2.02h-.843v-4.06z"/>
+                        <path d="M14 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z"/>
+                      </svg>
+                </div>
+                <div class="serie-info-2">
+                    <div class="serie-info-2-top">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-icon svg-icon-top-10-badge" style="color: rgb(229, 9, 20);"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 2C2.44772 2 2 2.44772 2 3V21C2 21.5523 2.44772 22 3 22H21C21.5523 22 22 21.5523 22 21V3C22 2.44772 21.5523 2 21 2H3ZM17.2299 10.8934C16.6125 10.4971 15.8913 10.2996 15.0673 10.2996C14.2444 10.2996 13.5231 10.4971 12.9056 10.8934C12.2881 11.2905 11.8114 11.8536 11.4762 12.5839C11.1411 13.3149 10.9735 14.1695 10.9735 15.1493C10.9735 16.1383 11.1411 16.9957 11.4762 17.7221C11.8114 18.4478 12.2881 19.0091 12.9056 19.4052C13.5231 19.8014 14.2444 20 15.0673 20C15.8913 20 16.6125 19.8014 17.2299 19.4052C17.8475 19.0091 18.3242 18.4478 18.6594 17.7221C18.9945 16.9957 19.1612 16.1383 19.1612 15.1493C19.1612 14.1695 18.9945 13.3149 18.6594 12.5839C18.3242 11.8536 17.8475 11.2905 17.2299 10.8934ZM9.47922 19.7994V10.3263L4.92658 11.4351V13.2656L7.20991 12.6774V19.7994H9.47922ZM13.7606 12.9513C14.0767 12.4298 14.5117 12.1701 15.0673 12.1701C15.6239 12.1701 16.0589 12.4298 16.3751 12.9513C16.6913 13.4718 16.8489 14.2058 16.8489 15.1493C16.8489 16.0938 16.6913 16.8268 16.3751 17.3473C16.0589 17.8688 15.6239 18.1296 15.0673 18.1296C14.5117 18.1296 14.0767 17.8688 13.7606 17.3473C13.4442 16.8268 13.2868 16.0938 13.2868 15.1493C13.2868 14.2058 13.4442 13.4718 13.7606 12.9513ZM13.0737 4.19939C12.7285 4.06677 12.3485 4 11.9344 4C11.5194 4 11.1405 4.06677 10.7952 4.19939C10.4521 4.33122 10.1518 4.51771 9.89848 4.75622C9.64404 4.99367 9.44963 5.27379 9.312 5.59396C9.17437 5.91504 9.10556 6.26299 9.10556 6.63872C9.10556 7.01446 9.17437 7.36241 9.312 7.68349C9.44963 8.00352 9.64404 8.28286 9.89848 8.52136C10.1518 8.75974 10.4521 8.9453 10.7952 9.07792C11.1405 9.20976 11.5194 9.27745 11.9344 9.27745C12.3485 9.27745 12.7285 9.20976 13.0737 9.07792C13.4168 8.9453 13.7161 8.75974 13.9704 8.52136C14.2239 8.28286 14.4194 8.00352 14.557 7.68349C14.6947 7.36241 14.7635 7.01446 14.7635 6.63872C14.7635 6.26299 14.6947 5.91504 14.557 5.59396C14.4194 5.27379 14.2239 4.99367 13.9704 4.75622C13.7161 4.51771 13.4168 4.33122 13.0737 4.19939ZM8.75526 5.30869V4.12288H4V5.30869H5.63894V9.15457H7.11632V5.30869H8.75526ZM18.9904 4.3469C18.6683 4.19847 18.2893 4.12327 17.8484 4.12327H15.5101V9.15392H16.9855V7.70838H17.8484C18.2893 7.70838 18.6683 7.63318 18.9904 7.48384C19.3117 7.33541 19.5601 7.12483 19.7366 6.85484C19.9132 6.58578 20 6.26931 20 5.90845C20 5.55682 19.9132 5.24587 19.7366 4.97602C19.5601 4.70683 19.3117 4.49624 18.9904 4.3469ZM11.2392 5.39166C11.4387 5.27379 11.6701 5.21545 11.9344 5.21545C12.1988 5.21545 12.4302 5.27379 12.6297 5.39166C12.8292 5.50954 12.9849 5.67653 13.0955 5.89001C13.2072 6.10521 13.2632 6.35386 13.2632 6.63872C13.2632 6.92267 13.2072 7.17224 13.0955 7.38651C12.9849 7.60092 12.8292 7.76791 12.6297 7.88565C12.4302 8.00352 12.1988 8.062 11.9344 8.062C11.6701 8.062 11.4387 8.00352 11.2392 7.88565C11.0397 7.76791 10.8841 7.60092 10.7724 7.38651C10.6617 7.17224 10.6057 6.92267 10.6057 6.63872C10.6057 6.35386 10.6617 6.10521 10.7724 5.89001C10.8841 5.67653 11.0397 5.50954 11.2392 5.39166ZM16.9855 5.27195H17.6149C17.9252 5.27195 18.1515 5.32845 18.2913 5.43895C18.4309 5.54931 18.5017 5.70616 18.5017 5.90845C18.5017 6.11535 18.4309 6.27589 18.2913 6.38902C18.1515 6.50228 17.9252 6.55878 17.6149 6.55878H16.9855V5.27195Z" fill="currentColor"></path></svg>
+                        <p>Oggi al n°2 tra le serie TV</p>
+                    </div>
+                    <p class="serie-info-p">Nell'arco di oltre un decennio, Jeffrey Dahmer ha ucciso 17 adolescenti e giovani uomini prima di essere condannato. Com'è sfuggito all'arresto per così tanto tempo?</p>
+                </div>
+            </div>
+
+        </div>
+        <!-- end left div-->
+    </div>
+    <div class="other-series">
+        <h2>Tv per bambini</h2>
+        <div class="serie-imagini-container">
+        <div class="serie-altri">
+            <img src="./serie/jurasic.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/teen.webp">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/henrydanger.webp">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/odd.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/pokimon.webp">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/sponge.webp">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/yhunder.webp">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/teen.webp">
+        </div>
+        </div>
+    </div>
+
+    <div class="other-series">
+        <h2>Film e serie per giovani</h2>
+        <div class="serie-imagini-container">
+        <div class="serie-altri">
+            <img src="./serie/arabic-1.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/arabic-2.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/arabic-3.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/arabic-4.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/arabic-5.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/arabic-6.webp">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/arabic-7.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/arabic-8.jpg">
+        </div>
+        </div>
+    </div>
+
+    <div class="other-series">
+        <h2>I titoli del momento</h2>
+        <div class="serie-imagini-container">
+        <div class="serie-altri">
+            <img src="./serie/serie-1.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/serie-2.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/serie-3.webp">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/serie-4.webp">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/serie-5.webp">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/serie-6.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/serie-7.webp">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/serie-8.jpg">
+        </div>
+        </div>
+    </div>
+
+    <div class="other-series">
+        <h2>Serie TV acclamate dalla critica</h2>
+        <div class="serie-imagini-container">
+        <div class="serie-altri">
+            <img src="./serie/new-1.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/new-2.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/new-3.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/new-4.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/new-5.webp">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/new-6.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/new-7.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/new-8.jpg">
+        </div>
+        </div>
+    </div>
+    <div class="other-series">
+        <h2>Serie TV crime</h2>
+        <div class="serie-imagini-container">
+        <div class="serie-altri">
+            <img src="./serie/old-1.webp">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/old-2.webp">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/old-3.webp">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/old-4.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/old-5.webp">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/old-6.webp">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/old-7.jpg">
+        </div>
+        <div class="serie-altri">
+            <img src="./serie/old-8.jpg">
+        </div>
+        </div>
+    </div>
+
+        <img class="loading" id="loading" src="./loading.gif" >
+
+        <div class="account-info" id="proflie-menu" style="display: none;">
+            <div class="account-details">
+                <div class="account-item">
+                    <img src="./profile-1.png">
+                    <p>Yassine</p>
+                </div>
+                <div class="account-item">
+                    <img src="./proflie-2.png">
+                    <p>Sara</p>
+                </div>
+                <div class="account-item">
+                    <img src="./proflie-3.png">
+                    <p>Adam</p>
+                </div>
+                <div class="linea"></div>
+                <div class="account-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                      </svg>
+                    <p>Gestici i profili</p>
+                </div>
+                <div class="account-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                        <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                      </svg>
+                    <p>Trasferici profilo</p>
+                </div>
+                <div class="account-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                      </svg>
+                    <p>Account</p>
+                </div>
+                <div class="account-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                      </svg>
+                    <p>Centro assistenza</p>
+                </div>
+                <div class="linea"></div>
+                <div class="log-out">
+                    <a href="./login.html">Esci da Netflix</a>
+                </div>
+            </div>
+        </div>
+</body>
+<script src="./main.js"></script>
+</html>
